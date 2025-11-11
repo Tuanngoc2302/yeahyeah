@@ -3,169 +3,160 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ALBUM A1K66 — 12A1</title>
+  <title>Đăng nhập học sinh 12A1 - MÍT</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* === Chủ đề tối (giữ nguyên) === */
-    :root{
-      --bg:#0b1220;
-      --card:rgba(255,255,255,0.04);
-      --muted:rgba(255,255,255,0.7);
-      --accent:#ff7de9; /* tông hồng nhạt ánh tím */
+    :root {
+      --bg: #0f1724;
+      --card: rgba(255,255,255,0.08);
+      --accent: linear-gradient(90deg, #7c3aed, #06b6d4);
+      --muted: rgba(255,255,255,0.7);
     }
-
-    /* === Chủ đề sáng: HỒNG - TRẮNG === */
-    [data-theme="light"]{
-      --bg:#fff0f6; /* nền hồng nhạt */
-      --card:rgba(255,182,193,0.2); /* khung mờ hồng */
-      --muted:#c2185b; /* chữ hồng đậm */
-      --accent:#ff80ab;
-      color:#4a154b;
+    [data-theme="light"] {
+      --bg: #f7f9fc;
+      --card: rgba(0,0,0,0.05);
+      --accent: linear-gradient(90deg, #4f46e5, #06b6d4);
+      --muted: rgba(0,0,0,0.65);
     }
-
-    *{box-sizing:border-box}
-    body{
+    * {box-sizing:border-box}
+    body {
       margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
-      background: radial-gradient(800px 400px at 10% 10%, rgba(255,105,180,0.12), transparent), var(--bg);
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Inter', sans-serif;
+      background: var(--bg);
+      transition: background 0.3s;
       color:white;
-      min-height:100vh;
-      padding:28px;
-      transition: background 0.4s ease, color 0.4s ease;
     }
-    [data-theme="light"] body{ color:#4a154b; }
-
-    .wrap{max-width:1100px;margin:0 auto}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
-    h1{margin:0;font-size:20px;color:var(--accent)}
-    .sub{color:var(--muted);font-size:14px}
-
-    /* gallery */
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .card{
-      position:relative;
-      border-radius:12px;
-      overflow:hidden;
-      background:var(--card);
-      border:1px solid rgba(255,255,255,0.08);
-      cursor:zoom-in;
-      transition:transform .3s ease, box-shadow .3s ease;
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      text-align:center;
     }
-    .card:hover{
-      transform:scale(1.03);
-      box-shadow:0 6px 16px rgba(255,182,193,0.4);
+    h1 {
+      margin-top:0;
+      background: var(--accent);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
-    .card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .35s ease}
-    .card:hover img{transform:scale(1.06)}
-
-    /* sticker */
-    .sticker{
-      position:absolute;left:10px;top:10px;
-      padding:6px 8px;border-radius:999px;
-      background:linear-gradient(90deg,#fff8,#ffffff55);
-      backdrop-filter:blur(4px);
-      font-weight:700;display:inline-flex;align-items:center;gap:6px;
-      color:#ff4fa3;
+    input {
+      width:100%;
+      padding:12px;
+      margin:8px 0;
+      border:none;
+      border-radius:8px;
+      background:rgba(255,255,255,0.1);
+      color:white;
+      font-size:15px;
     }
-    [data-theme="light"] .sticker{
-      background:linear-gradient(90deg,#fff9f9,#ffd6e0);
-      color:#ad1457;
+    input::placeholder {color:var(--muted)}
+    .btn {
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      font-weight:700;
+      background:var(--accent);
+      color:white;
+      cursor:pointer;
+      margin-top:10px;
     }
-
-    .sticker .emo{font-size:18px}
-    .cap{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;
-         background:linear-gradient(180deg,transparent,rgba(0,0,0,0.5));font-weight:600}
-
-    /* lightbox */
-    .lb{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.7);z-index:60}
-    .lb.open{display:flex}
-    .lb-inner{max-width:92vw;max-height:92vh;border-radius:12px;overflow:hidden;background:#000;display:flex;flex-direction:column;align-items:center}
-    .lb img{max-width:100%;max-height:80vh;display:block}
-    .lb .meta{padding:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);width:100%;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
-    .btn{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.15);
-      padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer;
-      transition:all .3s ease;
+    .btn:hover {opacity:0.9}
+    .small {color:var(--muted);font-size:13px;margin-top:10px}
+    #themeToggle {
+      background:none;
+      border:none;
+      color:var(--muted);
+      cursor:pointer;
+      font-size:20px;
+      position:absolute;
+      top:20px;
+      right:20px;
     }
-    .btn:hover{background:var(--accent);color:white;border-color:var(--accent)}
-    [data-theme="light"] .btn{border-color:#ffbcd2;color:#c2185b}
-    [data-theme="light"] .btn:hover{background:#ff80ab;color:white}
-
-    @media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}.card img{height:180px}}
-    @media (max-width:680px){.grid{grid-template-columns:repeat(2,1fr)}.card img{height:160px}}
-    @media (max-width:420px){.grid{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
-
-    .back-link{color:var(--muted);text-decoration:underline;cursor:pointer}
+    .link {color:#06b6d4;cursor:pointer;text-decoration:underline;}
   </style>
 </head>
-<body data-theme="dark">
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>ALBUMA1K66 — 12A1</h1>
-        <div class="sub">Album đơn giản có sticker — được làm bởi MÍT</div>
-      </div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <button class="btn" onclick="goBack()">Quay lại</button>
-        <button class="btn" id="themeToggle">🌗</button>
-      </div>
-    </header>
-
-    <main>
-      <section class="grid" id="gallery">
-        <!-- 13 hình -->
-        <!-- (phần danh sách ảnh giữ nguyên như bạn đã gửi ở trên) -->
-      </section>
-    </main>
-
-    <footer style="margin-top:20px;color:var(--muted);font-size:13px">© 2025 12A1 — Thiết kế bởi MÍT</footer>
-  </div>
-
-  <div class="lb" id="lightbox">
-    <div class="lb-inner">
-      <img id="lbImage" src="" alt="">
-      <div class="meta">
-        <div id="lbTitle"></div>
-        <div style="display:flex;gap:8px">
-          <button class="btn" id="prevBtn">‹</button>
-          <button class="btn" id="nextBtn">›</button>
-          <button class="btn" id="closeBtn">✕</button>
-        </div>
-      </div>
-    </div>
+<body>
+  <button id="themeToggle" title="Chuyển giao diện">🌗</button>
+  <div class="card fade-in">
+    <h1 id="formTitle">Đăng nhập 12A1</h1>
+    <p class="small">Trang học sinh lớp 12A1 — được làm bởi <strong>MÍT</strong></p>
+    <form id="loginForm" onsubmit="handleSubmit(event)">
+      <input id="username" placeholder="Tên đăng nhập" required>
+      <input id="password" type="password" placeholder="Mật khẩu" required>
+      <button type="submit" class="btn" id="submitBtn">Đăng nhập</button>
+    </form>
+    <p class="small" id="toggleText">Chưa có tài khoản? <span class="link" onclick="switchMode('register')">Đăng ký</span></p>
+    <div class="small">© 2025 Lớp 12A1 - Thiết kế bởi MÍT</div>
   </div>
 
   <script>
-    const cards = Array.from(document.querySelectorAll('.card'));
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImage');
-    const lbTitle = document.getElementById('lbTitle');
-    let idx = 0;
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
 
-    function openAt(i){
-      const card = cards[i];
-      lbImg.src = card.dataset.src;
-      lbTitle.textContent = card.dataset.title || '';
-      lb.classList.add('open');
-      idx = i;
-    }
-    cards.forEach((c,i)=> c.addEventListener('click', ()=> openAt(i)));
-    document.getElementById('closeBtn').addEventListener('click', ()=> lb.classList.remove('open'));
-    document.getElementById('prevBtn').addEventListener('click', ()=> openAt((idx-1+cards.length)%cards.length));
-    document.getElementById('nextBtn').addEventListener('click', ()=> openAt((idx+1)%cards.length));
-    lb.addEventListener('click', (e)=>{ if(e.target === lb) lb.classList.remove('open') });
-
-    // Chuyển chủ đề
     document.getElementById('themeToggle').addEventListener('click', ()=>{
-      const html = document.documentElement;
-      const cur = html.getAttribute('data-theme');
+      const cur = document.documentElement.getAttribute('data-theme');
       const next = cur === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      document.body.setAttribute('data-theme', next);
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
     });
 
-    function goBack(){ window.history.back(); }
+    let mode = 'login'; // hoặc 'register'
+
+    function switchMode(newMode){
+      mode = newMode;
+      const title = document.getElementById('formTitle');
+      const btn = document.getElementById('submitBtn');
+      const toggle = document.getElementById('toggleText');
+
+      if(mode === 'register'){
+        title.textContent = 'Đăng ký tài khoản';
+        btn.textContent = 'Đăng ký';
+        toggle.innerHTML = 'Đã có tài khoản? <span class="link" onclick="switchMode(\'login\')">Đăng nhập</span>';
+      } else {
+        title.textContent = 'Đăng nhập 12A1';
+        btn.textContent = 'Đăng nhập';
+        toggle.innerHTML = 'Chưa có tài khoản? <span class="link" onclick="switchMode(\'register\')">Đăng ký</span>';
+      }
+    }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      if(mode === 'register'){
+        if(localStorage.getItem('user_'+user)){
+          alert('Tên đăng nhập đã tồn tại!');
+          return;
+        }
+        localStorage.setItem('user_'+user, pass);
+        alert('Đăng ký thành công! Bạn có thể đăng nhập ngay.');
+        switchMode('login');
+        return;
+      }
+
+      if(user === '12a1' && pass === 'mit123'){
+        alert('Đăng nhập thành công với tài khoản mặc định!');
+        window.location.href = 'ALBUMA1K66.html';
+        return;
+      }
+
+      const savedPass = localStorage.getItem('user_'+user);
+      if(savedPass && savedPass === pass){
+        alert('Đăng nhập thành công! Chuyển đến album lớp 12A1...');
+        window.location.href = 'ALBUMA1K66.html';
+      } else {
+        alert('Sai tên đăng nhập hoặc mật khẩu!');
+      }
+    }
   </script>
 </body>
 </html>
