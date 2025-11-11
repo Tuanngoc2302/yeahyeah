@@ -25,8 +25,10 @@
     .sticker{position:absolute;left:10px;top:10px;padding:6px 8px;border-radius:999px;background:linear-gradient(90deg,#fff8,#ffffff33);backdrop-filter:blur(4px);font-weight:700;display:inline-flex;align-items:center;gap:6px}
     .sticker .emo{font-size:18px}
 
+    /* caption bar */
     .cap{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.5));font-weight:600}
 
+    /* lightbox */
     .lb{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.7);z-index:60}
     .lb.open{display:flex}
     .lb-inner{max-width:92vw;max-height:92vh;border-radius:12px;overflow:hidden;background:#000;display:flex;flex-direction:column;align-items:center}
@@ -34,10 +36,12 @@
     .lb .meta{padding:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);width:100%;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
     .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer}
 
+    /* responsive */
     @media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}.card img{height:180px}}
     @media (max-width:680px){.grid{grid-template-columns:repeat(2,1fr)}.card img{height:160px}}
     @media (max-width:420px){.grid{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
 
+    /* small flourishes */
     .back-link{color:var(--muted);text-decoration:underline;cursor:pointer}
   </style>
 </head>
@@ -45,8 +49,8 @@
   <div class="wrap">
     <header>
       <div>
-        <h1>ALBUMA1K66</h1>
-        <div class="sub">MÍT</div>
+        <h1>ALBUMA1K66 — 12A1</h1>
+        <div class="sub">Album đơn giản có sticker — được làm bởi MÍT</div>
       </div>
       <div style="display:flex;gap:10px;align-items:center">
         <button class="btn" onclick="goBack()">Quay lại</button>
@@ -56,6 +60,7 @@
 
     <main>
       <section class="grid" id="gallery">
+        <!-- 13 hình: hinh1.jpg ... hinh13.jpg -->
         <div class="card" data-src="hinh1.jpg" data-title="Hình 1">
           <div class="sticker"><span class="emo">📸</span><span>Kỷ niệm</span></div>
           <img src="hinh1.jpg" alt="Hình 1">
@@ -88,39 +93,39 @@
           <div class="cap">Hình 6</div>
         </div>
         <div class="card" data-src="hinh7.jpg" data-title="Hình 7">
-          <div class="sticker"><span class="emo">📚</span><span>pikachu</span></div>
+          <div class="sticker"><span class="emo">📚</span><span>Học hành</span></div>
           <img src="hinh7.jpg" alt="Hình 7">
           <div class="cap">Hình 7</div>
         </div>
         <div class="card" data-src="hinh8.jpg" data-title="Hình 8">
-          <div class="sticker"><span class="emo">✨</span><span>doreamon</span></div>
+          <div class="sticker"><span class="emo">✨</span><span>Khoảnh khắc</span></div>
           <img src="hinh8.jpg" alt="Hình 8">
           <div class="cap">Hình 8</div>
         </div>
 
         <div class="card" data-src="hinh9.jpg" data-title="Hình 9">
-          <div class="sticker"><span class="emo">🥳</span><span>shin</span></div>
+          <div class="sticker"><span class="emo">🥳</span><span>Party</span></div>
           <img src="hinh9.jpg" alt="Hình 9">
           <div class="cap">Hình 9</div>
         </div>
         <div class="card" data-src="hinh10.jpg" data-title="Hình 10">
-          <div class="sticker"><span class="emo">🌈</span><span>nobita</span></div>
+          <div class="sticker"><span class="emo">🌈</span><span>Màu sắc</span></div>
           <img src="hinh10.jpg" alt="Hình 10">
           <div class="cap">Hình 10</div>
         </div>
         <div class="card" data-src="hinh11.jpg" data-title="Hình 11">
-          <div class="sticker"><span class="emo">🏆</span><span>Antony</span></div>
+          <div class="sticker"><span class="emo">🏆</span><span>Thành tích</span></div>
           <img src="hinh11.jpg" alt="Hình 11">
           <div class="cap">Hình 11</div>
         </div>
         <div class="card" data-src="hinh12.jpg" data-title="Hình 12">
-          <div class="sticker"><span class="emo">🐯</span><span>Messi</span></div>
+          <div class="sticker"><span class="emo">🐯</span><span>Ngầu</span></div>
           <img src="hinh12.jpg" alt="Hình 12">
           <div class="cap">Hình 12</div>
         </div>
 
         <div class="card" data-src="hinh13.jpg" data-title="Hình 13">
-          <div class="sticker"><span class="emo">📷</span><span>Ronaldo</span></div>
+          <div class="sticker"><span class="emo">📷</span><span>Tập thể</span></div>
           <img src="hinh13.jpg" alt="Hình 13">
           <div class="cap">Hình 13</div>
         </div>
