@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ALBUM A1K66 — 12A1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b1220;--card:rgba(255,255,255,0.04);--muted:rgba(255,255,255,0.7);--accent:#7c3aed}
+    [data-theme="light"]{--bg:#f6f8fb;--card:rgba(0,0,0,0.04);--muted:rgba(0,0,0,0.75)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;background: radial-gradient(800px 400px at 10% 10%, rgba(124,58,237,0.06), transparent), var(--bg);color:white;min-height:100vh;padding:28px}
+    .wrap{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+    h1{margin:0;font-size:20px}
+    .sub{color:var(--muted);font-size:14px}
+
+    /* gallery */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .card{position:relative;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid rgba(255,255,255,0.04);cursor:zoom-in}
+    .card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .35s ease}
+    .card:hover img{transform:scale(1.06)}
+
+    /* sticker */
+    .sticker{position:absolute;left:10px;top:10px;padding:6px 8px;border-radius:999px;background:linear-gradient(90deg,#fff8,#ffffff33);backdrop-filter:blur(4px);font-weight:700;display:inline-flex;align-items:center;gap:6px}
+    .sticker .emo{font-size:18px}
+
+    /* caption bar */
+    .cap{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.5));font-weight:600}
+
+    /* lightbox */
+    .lb{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.7);z-index:60}
+    .lb.open{display:flex}
+    .lb-inner{max-width:92vw;max-height:92vh;border-radius:12px;overflow:hidden;background:#000;display:flex;flex-direction:column;align-items:center}
+    .lb img{max-width:100%;max-height:80vh;display:block}
+    .lb .meta{padding:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);width:100%;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+    /* responsive */
+    @media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}.card img{height:180px}}
+    @media (max-width:680px){.grid{grid-template-columns:repeat(2,1fr)}.card img{height:160px}}
+    @media (max-width:420px){.grid{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
+
+    /* small flourishes */
+    .back-link{color:var(--muted);text-decoration:underline;cursor:pointer}
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>ALBUMA1K66 — 12A1</h1>
+        <div class="sub">Album đơn giản có sticker — được làm bởi MÍT</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="btn" onclick="goBack()">Quay lại</button>
+        <button class="btn" id="themeToggle">🌗</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid" id="gallery">
+        <!-- 13 hình: hinh1.jpg ... hinh13.jpg -->
+        <div class="card" data-src="hinh1.jpg" data-title="Hình 1">
+          <div class="sticker"><span class="emo">📸</span><span>Kỷ niệm</span></div>
+          <img src="hinh1.jpg" alt="Hình 1">
+          <div class="cap">Hình 1</div>
+        </div>
+        <div class="card" data-src="hinh2.jpg" data-title="Hình 2">
+          <div class="sticker"><span class="emo">🎉</span><span>Vui vẻ</span></div>
+          <img src="hinh2.jpg" alt="Hình 2">
+          <div class="cap">Hình 2</div>
+        </div>
+        <div class="card" data-src="hinh3.jpg" data-title="Hình 3">
+          <div class="sticker"><span class="emo">🌟</span><span>Nổi bật</span></div>
+          <img src="hinh3.jpg" alt="Hình 3">
+          <div class="cap">Hình 3</div>
+        </div>
+        <div class="card" data-src="hinh4.jpg" data-title="Hình 4">
+          <div class="sticker"><span class="emo">😎</span><span>Cool</span></div>
+          <img src="hinh4.jpg" alt="Hình 4">
+          <div class="cap">Hình 4</div>
+        </div>
+
+        <div class="card" data-src="hinh5.jpg" data-title="Hình 5">
+          <div class="sticker"><span class="emo">❤️</span><span>Yêu thích</span></div>
+          <img src="hinh5.jpg" alt="Hình 5">
+          <div class="cap">Hình 5</div>
+        </div>
+        <div class="card" data-src="hinh6.jpg" data-title="Hình 6">
+          <div class="sticker"><span class="emo">🎒</span><span>Trường</span></div>
+          <img src="hinh6.jpg" alt="Hình 6">
+          <div class="cap">Hình 6</div>
+        </div>
+        <div class="card" data-src="hinh7.jpg" data-title="Hình 7">
+          <div class="sticker"><span class="emo">📚</span><span>Học hành</span></div>
+          <img src="hinh7.jpg" alt="Hình 7">
+          <div class="cap">Hình 7</div>
+        </div>
+        <div class="card" data-src="hinh8.jpg" data-title="Hình 8">
+          <div class="sticker"><span class="emo">✨</span><span>Khoảnh khắc</span></div>
+          <img src="hinh8.jpg" alt="Hình 8">
+          <div class="cap">Hình 8</div>
+        </div>
+
+        <div class="card" data-src="hinh9.jpg" data-title="Hình 9">
+          <div class="sticker"><span class="emo">🥳</span><span>Party</span></div>
+          <img src="hinh9.jpg" alt="Hình 9">
+          <div class="cap">Hình 9</div>
+        </div>
+        <div class="card" data-src="hinh10.jpg" data-title="Hình 10">
+          <div class="sticker"><span class="emo">🌈</span><span>Màu sắc</span></div>
+          <img src="hinh10.jpg" alt="Hình 10">
+          <div class="cap">Hình 10</div>
+        </div>
+        <div class="card" data-src="hinh11.jpg" data-title="Hình 11">
+          <div class="sticker"><span class="emo">🏆</span><span>Thành tích</span></div>
+          <img src="hinh11.jpg" alt="Hình 11">
+          <div class="cap">Hình 11</div>
+        </div>
+        <div class="card" data-src="hinh12.jpg" data-title="Hình 12">
+          <div class="sticker"><span class="emo">🐯</span><span>Ngầu</span></div>
+          <img src="hinh12.jpg" alt="Hình 12">
+          <div class="cap">Hình 12</div>
+        </div>
+
+        <div class="card" data-src="hinh13.jpg" data-title="Hình 13">
+          <div class="sticker"><span class="emo">📷</span><span>Tập thể</span></div>
+          <img src="hinh13.jpg" alt="Hình 13">
+          <div class="cap">Hình 13</div>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top:20px;color:var(--muted);font-size:13px">© 2025 12A1 — Thiết kế bởi MÍT</footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lb" id="lightbox">
+    <div class="lb-inner" role="dialog" aria-modal="true">
+      <img id="lbImage" src="" alt="">
+      <div class="meta">
+        <div id="lbTitle"></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn" id="prevBtn">‹</button>
+          <button class="btn" id="nextBtn">›</button>
+          <button class="btn" id="closeBtn">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImage');
+    const lbTitle = document.getElementById('lbTitle');
+    let idx = 0;
+
+    function openAt(i){
+      const card = cards[i];
+      lbImg.src = card.dataset.src;
+      lbTitle.textContent = card.dataset.title || '';
+      lb.classList.add('open');
+      idx = i;
+    }
+
+    cards.forEach((c,i)=> c.addEventListener('click', ()=> openAt(i)));
+    document.getElementById('closeBtn').addEventListener('click', ()=> lb.classList.remove('open'));
+    document.getElementById('prevBtn').addEventListener('click', ()=> openAt((idx-1+cards.length)%cards.length));
+    document.getElementById('nextBtn').addEventListener('click', ()=> openAt((idx+1)%cards.length));
+    lb.addEventListener('click', (e)=>{ if(e.target === lb) lb.classList.remove('open') });
+
+    // theme toggle (match login page)
+    document.getElementById('themeToggle').addEventListener('click', ()=>{
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+    });
+
+    function goBack(){ window.history.back(); }
+  </script>
+</body>
+</html>
